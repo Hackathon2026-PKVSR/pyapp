@@ -73,20 +73,28 @@ async def process_text(input_data: TextInput):
         
         model = genai.GenerativeModel(model_name)
         
-        prompt = f"""You are an expert data extraction assistant. Your task is to decompose a given paragraph into a list of "atomic facts."
+        prompt = f"""You are an expert data extraction assistant. Your task is to decompose a given paragraph into a list of "atomic facts with Claim type classification."
 
-An atomic fact is a statement that:
-1. Contains exactly one discrete piece of information.
-2. Is completely self-contained (replace all pronouns like "he," "she," "it," or "they" with the specific nouns they refer to).
-3. Can be verified independently as true or false based solely on the text.
+                        An atomic fact is a statement that:
+                        1. Contains exactly one discrete piece of information.
+                        2. Is completely self-contained (replace all pronouns like "he," "she," "it," or "they" with the specific nouns they refer to).
+                        3. Can be verified independently as true or false based solely on the text.
+                        4. Claim type classification is a label that categorizes the atomic fact based on its nature.
+                        5. Claim type classification can be one of the following: "Numerical", "Entity Fact", "Temporal" or "General."
+                        Constraints:
+                        - Do not assume, extrapolate, or bring in outside knowledge. Extract only what is explicitly stated.
+                        - Do not combine multiple independent clauses into one fact. Break them down.
+                        - Maintain the original meaning without adding commentary.
 
-Constraints:
-- Do not assume, extrapolate, or bring in outside knowledge. Extract only what is explicitly stated.
-- Do not combine multiple independent clauses into one fact. Break them down.
-- Maintain the original meaning without adding commentary.
+                        Format your output as a clean, numbered Markdown list.
 
-Format your output as a clean, numbered Markdown list.
-
+                        Output Formate shuld be in JSON array of objects with the following structure:
+                        [
+                            {{
+                                "fact": "The specific atomic fact extracted from the text.",
+                                "claim_type": "The claim type classification for the atomic fact (Numerical, Entity Fact, Temporal, or General)."
+                            }}
+                        ]
 ### Input Paragraph:
 {text}
 
