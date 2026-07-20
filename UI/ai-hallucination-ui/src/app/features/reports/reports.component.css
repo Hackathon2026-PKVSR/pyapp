@@ -1,0 +1,5 @@
+.report-card {
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 0.8rem;
+}

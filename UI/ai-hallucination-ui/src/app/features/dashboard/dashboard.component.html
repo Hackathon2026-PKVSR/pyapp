@@ -1,0 +1,35 @@
+@if (summary(); as data) {
+  <section class="grid cards">
+    <article class="panel metric">
+      <h3>Total Checks</h3>
+      <p>{{ data.totalChecks }}</p>
+    </article>
+
+    <article class="panel metric">
+      <h3>Avg Confidence</h3>
+      <p>{{ data.avgConfidence }}%</p>
+    </article>
+
+    <article class="panel metric">
+      <h3>Hallucination Rate</h3>
+      <p>{{ data.hallucinationRate }}%</p>
+    </article>
+
+    <article class="panel metric">
+      <h3>Last Verification</h3>
+      <p>{{ data.lastRunAt | date: 'medium' }}</p>
+    </article>
+  </section>
+
+  <section class="panel quick-actions">
+    <h2>Quick actions</h2>
+    <div class="row">
+      <a class="btn primary" routerLink="/verify">Verify new response</a>
+      <a class="btn secondary" routerLink="/history">Open history</a>
+    </div>
+  </section>
+} @else {
+  <section class="panel">
+    <p class="muted">Loading dashboard...</p>
+  </section>
+}

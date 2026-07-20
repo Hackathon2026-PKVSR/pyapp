@@ -1,0 +1,25 @@
+<section class="panel auth-wrap">
+  <h2>Sign in</h2>
+  <p class="muted">Enter static credentials to continue to the home page.</p>
+  <p class="muted">Username: admin | Password: Admin@123</p>
+
+  <div class="grid">
+    <label>
+      Username
+      <input [(ngModel)]="username" placeholder="analyst@company.com" />
+    </label>
+
+    <label>
+      Password
+      <input [(ngModel)]="password" type="password" placeholder="••••••••" />
+    </label>
+  </div>
+
+  <div class="row">
+    <button class="btn primary" type="button" (click)="signIn()">Continue</button>
+  </div>
+
+  @if (message) {
+    <p class="status bad">{{ message }}</p>
+  }
+</section>

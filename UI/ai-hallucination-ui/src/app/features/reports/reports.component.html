@@ -1,0 +1,19 @@
+<section class="panel">
+  <h2>Reports</h2>
+  <p class="muted">Download verification reports generated from previous checks.</p>
+
+  @if (reports().length) {
+    <div class="grid">
+      @for (report of reports(); track report.id) {
+        <article class="report-card">
+          <h3>{{ report.sourceName || 'Text verification' }}</h3>
+          <p class="muted">{{ report.createdAt | date: 'medium' }}</p>
+          <p><strong>Confidence:</strong> {{ report.confidenceScore }}%</p>
+          <button class="btn primary" type="button" (click)="download(report)">Download report</button>
+        </article>
+      }
+    </div>
+  } @else {
+    <p class="muted">No reports yet. Run verification first.</p>
+  }
+</section>

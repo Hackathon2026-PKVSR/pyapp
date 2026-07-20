@@ -1,0 +1,13 @@
+.profile-wrap {
+  max-width: 560px;
+}
+
+.inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inline input {
+  width: auto;
+}

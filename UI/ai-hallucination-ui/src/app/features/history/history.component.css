@@ -1,0 +1,21 @@
+.history-table {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1fr 1fr;
+  gap: 0.5rem 1rem;
+  align-items: center;
+}
+
+.head {
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .history-table {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .head {
+    margin-top: 0.7rem;
+  }
+}

@@ -1,0 +1,26 @@
+<section class="panel">
+  <h2>Verification history</h2>
+
+  @if (items().length) {
+    <div class="history-table">
+      <div class="head">Date</div>
+      <div class="head">Source</div>
+      <div class="head">Confidence</div>
+      <div class="head">Actions</div>
+
+      @for (item of items(); track item.id) {
+        <div>{{ item.createdAt | date: 'short' }}</div>
+        <div>
+          <span>{{ item.sourceType }}</span>
+          @if (item.sourceName) {
+            <span> ({{ item.sourceName }})</span>
+          }
+        </div>
+        <div>{{ item.confidenceScore }}%</div>
+        <div><a routerLink="/reports">View report</a></div>
+      }
+    </div>
+  } @else {
+    <p class="muted">No verification history found.</p>
+  }
+</section>
