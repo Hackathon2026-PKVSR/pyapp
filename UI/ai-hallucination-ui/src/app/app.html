@@ -1,0 +1,32 @@
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div>
+        <p class="kicker">Trust Layer</p>
+        <h1>AI Hallucination Detection</h1>
+      </div>
+    </div>
+    @if (auth.isLoggedIn()) {
+      <div class="row">
+        <a class="btn ghost" routerLink="/profile">Profile</a>
+        <button class="btn ghost" type="button" (click)="logout()" routerLink="/login">Logout</button>
+      </div>
+    }
+  </header>
+
+  @if (auth.isLoggedIn()) {
+    <nav class="main-nav" aria-label="Main navigation">
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/verify" routerLinkActive="active">Verify</a>
+      <a routerLink="/results" routerLinkActive="active">Results</a>
+      <a routerLink="/history" routerLinkActive="active">History</a>
+      <a routerLink="/reports" routerLinkActive="active">Reports</a>
+      <a routerLink="/profile" routerLinkActive="active">Profile</a>
+    </nav>
+  }
+
+  <main class="page-body">
+    <router-outlet></router-outlet>
+  </main>
+</div>

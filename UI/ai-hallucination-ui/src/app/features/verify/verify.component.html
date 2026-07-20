@@ -1,0 +1,33 @@
+<section class="grid">
+  <article class="panel">
+    <h2>Verify AI response</h2>
+    <p class="muted">Paste model output or upload a source document to detect hallucinations.</p>
+
+    <div class="grid">
+      <label>
+        AI response text
+        <textarea rows="8" [(ngModel)]="inputText" placeholder="Paste AI-generated answer here"></textarea>
+      </label>
+
+      <label>
+        Upload document
+        <input type="file" (change)="onFileSelect($event)" />
+      </label>
+
+      <div class="row">
+        <button class="btn secondary" type="button" (click)="toggleVoice()">
+          {{ voiceActive ? 'Stop Voice' : 'Voice Input' }}
+        </button>
+        <button class="btn primary" type="button" (click)="runVerification()">Verify now</button>
+      </div>
+
+      @if (selectedFile) {
+        <p class="muted">Selected: {{ selectedFile.name }}</p>
+      }
+
+      @if (infoMessage) {
+        <p class="muted">{{ infoMessage }}</p>
+      }
+    </div>
+  </article>
+</section>

@@ -1,0 +1,56 @@
+@if (result(); as data) {
+  <section class="grid">
+    <article class="panel">
+      <h2>Verification results</h2>
+      <p class="muted">{{ data.createdAt | date: 'medium' }} • {{ data.sourceType | titlecase }}</p>
+      <div class="row">
+        <p><strong>Confidence:</strong> {{ data.confidenceScore }}%</p>
+        <span class="status" [class]="'status ' + riskLevel().className">{{ riskLevel().label }}</span>
+      </div>
+      @if (data.sourceName) {
+        <p class="muted">Source file: {{ data.sourceName }}</p>
+      }
+    </article>
+
+    <article class="panel">
+      <h3>Atomic claims</h3>
+      @for (claim of data.claims; track claim.claim) {
+        <div class="claim-row">
+          <p><strong>{{ claim.claim }}</strong></p>
+          <span class="status" [class]="'status ' + (claim.status === 'correct' ? 'ok' : claim.status === 'needs-review' ? 'warn' : 'bad')">
+            {{ claim.status }} • {{ claim.confidence }}%
+          </span>
+          <p class="muted">Evidence: {{ claim.evidence }}</p>
+        </div>
+      }
+    </article>
+
+    <article class="panel">
+      <h3>Suggested corrections</h3>
+      <ul>
+        @for (item of data.suggestedCorrections; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </article>
+
+    <article class="panel">
+      <h3>Highlighted risky statements</h3>
+      <ul>
+        @for (h of data.highlights; track h) {
+          <li>{{ h }}</li>
+        }
+      </ul>
+      <div class="row">
+        <a class="btn secondary" routerLink="/verify">Run again</a>
+        <a class="btn primary" routerLink="/reports">Generate report</a>
+      </div>
+    </article>
+  </section>
+} @else {
+  <section class="panel">
+    <h2>No result yet</h2>
+    <p class="muted">Run a verification to see confidence scores, claims, and evidence.</p>
+    <a class="btn primary" routerLink="/verify">Go to verification</a>
+  </section>
+}

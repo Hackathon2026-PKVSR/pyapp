@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+
+:root {
+	--brand-1: #ec9f2f;
+	--brand-2: #dd4c2b;
+	--bg-1: #f3f1ea;
+	--bg-2: #dce9f7;
+	--surface: rgba(255, 255, 255, 0.9);
+	--surface-2: rgba(236, 159, 47, 0.12);
+	--line: rgba(23, 28, 35, 0.16);
+	--text: #171c23;
+	--muted-text: #4f5969;
+	--ok: #15803d;
+	--warn: #b45309;
+	--bad: #b91c1c;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Manrope, sans-serif;
+	color: var(--text);
+	background: radial-gradient(circle at 15% 0%, var(--bg-2), transparent 42%),
+		radial-gradient(circle at 100% 10%, #f8d9b0, transparent 38%),
+		linear-gradient(135deg, var(--bg-1), #eff9f3);
+	min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: 'Space Grotesk', sans-serif;
+}
+
+.grid {
+	display: grid;
+	gap: 1rem;
+}
+
+.grid.cards {
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.panel {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: 1rem;
+	padding: 1rem;
+}
+
+.panel h2,
+.panel h3,
+.panel p {
+	margin-top: 0;
+}
+
+.btn {
+	border: 0;
+	border-radius: 0.7rem;
+	padding: 0.55rem 0.9rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.btn.primary {
+	color: #fff;
+	background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+}
+
+.btn.secondary {
+	color: var(--text);
+	background: rgba(23, 28, 35, 0.08);
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+input,
+textarea,
+select {
+	width: 100%;
+	border: 1px solid var(--line);
+	border-radius: 0.65rem;
+	padding: 0.6rem 0.7rem;
+	font: inherit;
+	background: #fff;
+}
+
+.muted {
+	color: var(--muted-text);
+}
+
+.status {
+	font-weight: 700;
+	border-radius: 999px;
+	padding: 0.2rem 0.65rem;
+	font-size: 0.8rem;
+}
+
+.status.ok {
+	color: var(--ok);
+	background: rgba(21, 128, 61, 0.12);
+}
+
+.status.warn {
+	color: var(--warn);
+	background: rgba(180, 83, 9, 0.12);
+}
+
+.status.bad {
+	color: var(--bad);
+	background: rgba(185, 28, 28, 0.12);
+}

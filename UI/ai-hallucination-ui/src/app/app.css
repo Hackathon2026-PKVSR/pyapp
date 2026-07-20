@@ -1,0 +1,83 @@
+.app-shell {
+	min-height: 100vh;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+.topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.brand {
+	display: flex;
+	gap: 0.75rem;
+	align-items: center;
+}
+
+.brand-mark {
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 0.5rem;
+	background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+}
+
+.brand h1 {
+	margin: 0;
+	font-size: 1.15rem;
+}
+
+.kicker {
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-size: 0.7rem;
+	color: var(--muted-text);
+}
+
+.main-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	margin-bottom: 1rem;
+}
+
+.main-nav a {
+	text-decoration: none;
+	color: var(--text);
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	padding: 0.35rem 0.85rem;
+	font-size: 0.9rem;
+}
+
+.main-nav a.active {
+	background: var(--surface-2);
+	border-color: var(--brand-1);
+}
+
+.btn.ghost {
+	border: 1px solid var(--line);
+	color: var(--text);
+	text-decoration: none;
+	border-radius: 999px;
+	padding: 0.4rem 1rem;
+}
+
+.page-body {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: 1rem;
+	padding: 1rem;
+}
+
+@media (max-width: 720px) {
+	.topbar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}

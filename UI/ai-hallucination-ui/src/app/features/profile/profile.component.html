@@ -1,0 +1,28 @@
+<section class="panel profile-wrap">
+  <h2>Profile</h2>
+  <p class="muted">Manage report and verification preferences.</p>
+
+  <div class="grid">
+    <label>
+      Full name
+      <input [(ngModel)]="fullName" />
+    </label>
+
+    <label>
+      Email
+      <input [(ngModel)]="email" type="email" />
+    </label>
+
+    <label>
+      Team
+      <input [(ngModel)]="team" />
+    </label>
+
+    <label class="inline">
+      <input [(ngModel)]="notifications" type="checkbox" />
+      Enable report notifications
+    </label>
+  </div>
+
+  <button class="btn primary" type="button" (click)="save()">Save profile</button>
+</section>
